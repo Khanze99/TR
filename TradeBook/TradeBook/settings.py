@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'TradeBookApi',
     'rest_framework',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LIB_CATEGORIES_URL = 'https://libs.ru/genre/'
