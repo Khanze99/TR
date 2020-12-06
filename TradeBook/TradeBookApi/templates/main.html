@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+
+</head>
+<body>
+
+{% verbatim %}
+<div class="container" id="category">
+
+
+    <div class="card" style="width: 18rem;" v-for="category in categories">
+        <div class="card-body">
+        <h5 class="card-title">{{ category.name }}</h5>
+        <p class="card-text">{{ category.subcategories }}</p>
+<!--            Тут нужно придумать что делать с сабкатегориями-->
+        </div>
+
+</div>
+{% endverbatim %}
+
+
+<script src="/static/app.js"></script>
+</body>
+</html>
