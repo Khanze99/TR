@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from TradeBookApi.views import main
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('TradeBookApi.urls'))
+    path('api/', include('TradeBookApi.urls')),
+    path('main/', main)
 ]

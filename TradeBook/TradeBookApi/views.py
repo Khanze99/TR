@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -20,3 +21,7 @@ class CategoryAPI(APIView):
             result.append(serializer_category)
 
         return Response(result, status=200)
+
+
+def main(request):
+    return render(request, 'main.html')
