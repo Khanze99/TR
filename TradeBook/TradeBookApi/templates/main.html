@@ -17,13 +17,15 @@
     <div class="card" style="width: 18rem;" v-for="category in categories">
         <div class="card-body">
         <h5 class="card-title">{{ category.name }}</h5>
-        <p class="card-text">{{ category.subcategories }}</p>
-<!--            Тут нужно придумать что делать с сабкатегориями-->
+            <div v-for="subcategory in category.subcategories">
+                <p class="card-text">{{ subcategory.name }}</p>
+            </div>
         </div>
+
+    </div>
 
 </div>
 {% endverbatim %}
-
 
 <script src="/static/app.js"></script>
 </body>
