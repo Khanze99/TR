@@ -23,13 +23,13 @@ class Command(BaseCommand):
         soup = BeautifulSoup(html, 'lxml')
         ul_genre_list = soup.find('ul', class_='genre-list')
 
-        category = [h2.text for h2 in ul_genre_list.find_all('h2')]
+        categories = [h2.text for h2 in ul_genre_list.find_all('h2')]
         sublist = [tag.text.strip() for tag in ul_genre_list.find_all('ul', class_='genre-sublist')]
-        subcategory = list(map(lambda categories: categories.split('\n'), sublist))
+        subcategories = list(map(lambda categories: categories.split('\n'), sublist))
 
-        category_dict = dict(zip(category, subcategory))
+        category_dict = dict(zip(categories, subcategories))
 
-        for cat in enumerate(category_dict, 1):
-            cat_model = Category.objects.create(id=cat[0], name=cat[1])
-            for subcat in category_dict[cat[1]]:
-                Category(name=subcat, parent=cat_model).save()
+        for category in enumerate(category_dict, 1):
+            cat_model = Category.objects.create(id=category[0], name=category[1])
+            for subcategory in category_dict[category[1]]:
+                Category(name=subcategory, parent=cat_model).save()
