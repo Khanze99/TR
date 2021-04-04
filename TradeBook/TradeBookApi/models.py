@@ -40,3 +40,23 @@ class Book(models.Model):
 class Image(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(default='', upload_to=upload_image, null=True, blank=True)
+
+
+class TypeDeal(models.Model):
+    CHOICES = (
+        't', 'Trade',
+        's', 'Sale',
+        'g', 'Gift'
+    )
+    name = models.CharField(max_length=5, choices=CHOICES)
+
+
+class Deal(models.Model):
+    # user fk
+    type = models.ForeignKey(TypeDeal, related_name='deals', on_delete=models.SET_NULL, null=True)
+    created_date = models.DateTimeField(auto_created=True, auto_now=False)
+    updated_date = models.DateTimeField(auto_now=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    archive = models.BooleanField(default=False)
+    # TODO meeting point ?

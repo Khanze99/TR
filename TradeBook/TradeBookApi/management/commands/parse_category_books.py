@@ -26,7 +26,6 @@ class Command(BaseCommand):
         categories = [h2.text for h2 in ul_genre_list.find_all('h2')]
         sublist = [tag.text.strip() for tag in ul_genre_list.find_all('ul', class_='genre-sublist')]
         subcategories = list(map(lambda categories: categories.split('\n'), sublist))
-
         category_dict = dict(zip(categories, subcategories))
 
         for category in enumerate(category_dict, 1):
