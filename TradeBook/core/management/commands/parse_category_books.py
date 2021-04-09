@@ -6,7 +6,7 @@ from django.core.management.base import BaseCommand
 from django.conf import settings
 
 
-from TradeBookApi.models import Category
+from core.models import Category
 
 
 class Command(BaseCommand):

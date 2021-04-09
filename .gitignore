@@ -3,4 +3,4 @@ tradebook/.env
 **/__pycache__/**
 **/*.pyc
 .idea/
-TradeBook/TradeBook/.env
+TradeBook/tradebook/.env
