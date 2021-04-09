@@ -43,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'TradeBookApi',
+
+    # Third party packages
     'rest_framework',
+
+    # Our apps
+    'core',
     'accounts'
 ]
 
@@ -58,12 +62,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'TradeBook.urls'
+ROOT_URLCONF = 'tradebook.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + '/TradeBookApi/templates/'],
+        'DIRS': [BASE_DIR + '/core/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TradeBook.wsgi.application'
+WSGI_APPLICATION = 'tradebook.wsgi.application'
 
 
 # Database

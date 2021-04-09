@@ -1,4 +1,4 @@
-"""TradeBook URL Configuration
+"""tradebook URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from TradeBookApi.views import main
+from core.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('TradeBookApi.urls')),
+    path('api/', include('core.urls')),
     path('main/', main)
 ]
