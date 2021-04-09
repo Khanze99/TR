@@ -1,6 +1,5 @@
 venv
-tradebook/.env
 **/__pycache__/**
 **/*.pyc
 .idea/
-TradeBook/tradebook/.env
+**/.env
