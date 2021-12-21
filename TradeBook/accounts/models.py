@@ -1,14 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 # TODO: may be AbstractUser for Profile
 
 
-class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+class User(AbstractUser):
     bio = models.TextField(blank=True, null=True)
     rating = models.FloatField(blank=True, null=True, default=0)
 
@@ -17,7 +14,7 @@ class Profile(models.Model):
 
 
 class SocialNetwork(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     url = models.URLField()
 
