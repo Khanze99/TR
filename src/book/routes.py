@@ -1,5 +1,12 @@
 """ Book routes module """
-from fastapi import APIRouter, status
+from fastapi import APIRouter, status, Depends
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from src.database import get_session
+
+from .schemas import BookSchema
+from .models import BookModel
 
 book_router = APIRouter(
     prefix='/book',
@@ -9,9 +16,16 @@ book_router = APIRouter(
 
 @book_router.get(
     '/{book_id}',
-    description="Информация о книге"
+    description="Информация о книге",
+    response_model=BookSchema
 )
-async def get_book(): return {}
+async def get_book(
+        book_id: int,
+        session: AsyncSession = Depends(get_session)
+):
+    results = await session.execute(select(BookModel).filter_by(id=book_id))
+    item = results.scalars().first()
+    return item
 
 
 @book_router.post(

@@ -14,11 +14,20 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+import os, sys
+sys.path.insert(0, os.getcwd())
+
+from src.database import BaseModel
+from src.utils import discover_project_for_models
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+discover_project_for_models("src")
+target_metadata = BaseModel.metadata
+
+url = 'postgresql+psycopg2://user:password@localhost:5432/bookstore'
+config.set_main_option('sqlalchemy.url', url)
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
